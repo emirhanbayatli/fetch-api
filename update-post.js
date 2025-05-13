@@ -1,8 +1,3 @@
-// When a user submits the form, validate the form data
-// If form data is not valid, show error messages
-// If form data is valid, make an API request to update the post (PUT request)
-// Shouw a success message (do NOT use alert!) on the screen after successful response is recieved in the API request
-
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 const URL = "https://jsonplaceholder.typicode.com/posts";

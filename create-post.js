@@ -1,9 +1,3 @@
-// Validate the form data
-// If form data is not valid, show error messages on the screen (do NOT use alert!)
-// If form data is valid, make an API request to create the post (POST request)
-// Once succesccful response is recieved, show a success message on the screen
-// Clear the form
-
 document
   .getElementById("create-post-btn")
   .addEventListener("click", function createPost() {

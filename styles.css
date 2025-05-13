@@ -92,15 +92,6 @@ input {
   background-color: #e68900;
 }
 
-.alert {
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 16px;
-  margin: 20px 0;
-  text-align: center;
-  font-weight: bold;
-}
-
 .error-message {
   background-color: #ff5252;
   color: white;
