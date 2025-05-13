@@ -1,3 +1,8 @@
+// When a user submits the form, validate the form data
+// If form data is not valid, show error messages
+// If form data is valid, make an API request to update the post (PUT request)
+// Shouw a success message (do NOT use alert!) on the screen after successful response is recieved in the API request
+
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 const URL = "https://jsonplaceholder.typicode.com/posts";
@@ -19,6 +24,16 @@ fetch(`${URL}/${postId}`)
 document
   .getElementById("update-post-btn")
   .addEventListener("click", function () {
+    if (userId.value === "" || title.value === "" || body.value === "") {
+      const errorMessage = document.createElement("p");
+      errorMessage.classList.add("error-message");
+      errorMessage.textContent = "Please fill in all fields.";
+      document.getElementById("posts-container").appendChild(errorMessage);
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 3000);
+      return;
+    }
     fetch(`${URL}/${postId}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -46,6 +61,14 @@ document
         liItem.appendChild(pItem);
         document.getElementById("posts-container").appendChild(liItem);
 
+        const successMessage = document.createElement("p");
+        successMessage.classList.add("success-message");
+        successMessage.textContent = "Completed Successfully!";
+        document.getElementById("posts-container").appendChild(successMessage);
+        setTimeout(() => {
+          successMessage.remove();
+        }, 3000);
+
         userId.value = "";
         title.value = "";
         body.value = "";
@@ -53,8 +76,3 @@ document
 
     console.log(`Update Post ID: ${postId}`);
   });
-
-// When a user submits the form, validate the form data
-// If form data is not valid, show error messages
-// If form data is valid, make an API request to update the post (PUT request)
-// Shouw a success message (do NOT use alert!) on the screen after successful response is recieved in the API request
