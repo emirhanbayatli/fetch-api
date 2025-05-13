@@ -1,14 +1,21 @@
 document
   .getElementById("create-post-btn")
   .addEventListener("click", function createPost() {
-    // Validate the form data
-    // If form data is not valid, show error messages on the screen (do NOT use alert!)
-    // If form data is valid, make an API request to create the post (POST request)
-    // Once succesccful response is recieved, show a success message on the screen
-    // Clear the form
     const userId = document.getElementById("userId");
     const title = document.getElementById("title");
     const body = document.getElementById("body");
+
+    if (userId.value === "" || title.value === "" || body.value === "") {
+      const errorMessage = document.createElement("p");
+      errorMessage.classList.add("error-message");
+      errorMessage.textContent = "Please fill in all fields.";
+      document.getElementById("posts-container").appendChild(errorMessage);
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 3000);
+      return;
+    }
+
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -38,6 +45,14 @@ document
         liItem.appendChild(postTitle);
         liItem.appendChild(pItem);
         document.getElementById("posts-container").appendChild(liItem);
+
+        const successMessage = document.createElement("p");
+        successMessage.classList.add("success-message");
+        successMessage.textContent = "Completed Successfully!";
+        document.getElementById("posts-container").appendChild(successMessage);
+        setTimeout(() => {
+          successMessage.remove();
+        }, 3000);
 
         title.value = "";
         body.value = "";

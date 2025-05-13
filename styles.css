@@ -69,6 +69,7 @@ input {
   margin-bottom: 20px;
   margin: 15px;
   margin-left: 0;
+  transition: background-color 0.3s ease;
 }
 
 .none {
@@ -91,23 +92,16 @@ input {
   background-color: #e68900;
 }
 
-.alert {
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 16px;
-  margin: 20px 0;
-  text-align: center;
-  font-weight: bold;
-}
-
-.alert--success {
-  background-color: #4caf50;
-  color: white;
-  display: none;
-}
-
-.alert--error {
+.error-message {
   background-color: #ff5252;
   color: white;
-  display: none;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
 }
