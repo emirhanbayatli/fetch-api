@@ -5,7 +5,6 @@ R - read - GET method (cannot have request body to send data to the server)
 U - update - PUT / PATCH method (have request body to transfer data)
 D - delete - DELETE method
 
-
 Status codes
 HTTP status codes are three-digit numbers that the server sends in response to a client's request made to a web server. They provide information about the outcome of the request, whether it was successful, encountered an error, or requires further action. HTTP status codes are grouped into several ranges, each indicating a different category of response. 
 100... - Informational Responses
@@ -15,53 +14,51 @@ HTTP status codes are three-digit numbers that the server sends in response to a
 500... - Service error (500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable)
 */
 
-const URL = 'https://jsonplaceholder.typicode.com/posts';
+const URL = "https://jsonplaceholder.typicode.com/posts";
 
-document.getElementById('fetch-posts').addEventListener('click', getPosts);
+document.getElementById("fetch-posts").addEventListener("click", getPosts);
 
 function getPosts() {
-  console.log('Getting posts');
+  console.log("Getting posts");
   fetch(URL)
     .then((response) => response.json())
     .then((posts) => {
       posts.forEach((post) => {
-        const liItem = document.createElement('li');
-        liItem.classList.add('post');
+        const liItem = document.createElement("li");
+        liItem.classList.add("post");
         liItem.id = `post-${post.id}`;
-        const postTitle = document.createElement('h2');
-        postTitle.classList.add('post-title');
+        const postTitle = document.createElement("h2");
+        postTitle.classList.add("post-title");
         postTitle.textContent = posts.title;
-        const pItem = document.createElement('p');
-        pItem.classList.add('post-body');
+        const pItem = document.createElement("p");
+        pItem.classList.add("post-body");
         pItem.textContent = post.body;
 
-        const updatePostButton = document.createElement('a');
+        const updatePostButton = document.createElement("a");
         updatePostButton.href = `./update-post.html?id=${post.id}`;
-        updatePostButton.id = 'update-post-btn';
-        updatePostButton.textContent = 'Update';
-        updatePostButton.classList.add('button', 'button--success');
+        updatePostButton.id = "update-post-btn";
+        updatePostButton.textContent = "Update";
+        updatePostButton.classList.add("button", "button--success");
 
-        const deletePostButton = document.createElement('button');
-        deletePostButton.textContent = 'Delete';
-        deletePostButton.addEventListener('click', () => deletePost(post.id));
-        deletePostButton.classList.add('button', 'button--danger');
+        const deletePostButton = document.createElement("button");
+        deletePostButton.textContent = "Delete";
+        deletePostButton.addEventListener("click", () => deletePost(post.id));
+        deletePostButton.classList.add("button", "button--danger");
 
         liItem.appendChild(postTitle);
         liItem.appendChild(pItem);
         liItem.appendChild(updatePostButton);
         liItem.appendChild(deletePostButton);
-        document.getElementById('posts-container').appendChild(liItem);
-        
+        document.getElementById("posts-container").appendChild(liItem);
       });
     });
 }
 
-
 function deletePost(postId) {
   fetch(`${URL}/${postId}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
   const deletedItem = document.getElementById(`post-${postId}`);
-  deletedItem.classList.add('none');
+  deletedItem.classList.add("none");
   console.log(`Deleted Post ID: ${postId}`);
 }

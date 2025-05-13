@@ -76,7 +76,7 @@ input {
 }
 
 .button--success {
-  background-color: #007BFF;
+  background-color: #007bff;
 }
 
 .button--success:hover {
@@ -84,7 +84,7 @@ input {
 }
 
 .button--danger {
-  background-color: #FF9800;
+  background-color: #ff9800;
 }
 
 .button--danger:hover {
@@ -101,13 +101,13 @@ input {
 }
 
 .alert--success {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   display: none;
 }
 
 .alert--error {
-  background-color: #FF5252;
+  background-color: #ff5252;
   color: white;
   display: none;
 }

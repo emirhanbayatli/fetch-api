@@ -1,12 +1,12 @@
 const params = new URLSearchParams(window.location.search);
-const postId = params.get('id');
-const URL = 'https://jsonplaceholder.typicode.com/posts';
+const postId = params.get("id");
+const URL = "https://jsonplaceholder.typicode.com/posts";
 console.log(params, postId);
 
-const userId = document.getElementById('userId');
-const title = document.getElementById('title');
-const body = document.getElementById('body');
-const listItem = document.createElement('li');
+const userId = document.getElementById("userId");
+const title = document.getElementById("title");
+const body = document.getElementById("body");
+const listItem = document.createElement("li");
 
 fetch(`${URL}/${postId}`)
   .then((response) => response.json())
@@ -17,10 +17,10 @@ fetch(`${URL}/${postId}`)
   });
 
 document
-  .getElementById('update-post-btn')
-  .addEventListener('click', function () {
+  .getElementById("update-post-btn")
+  .addEventListener("click", function () {
     fetch(`${URL}/${postId}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify({
         id: postId,
         title: title.value,
@@ -28,35 +28,33 @@ document
         userId: userId.value,
       }),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
     })
       .then((response) => response.json())
       .then((post) => {
-        const liItem = document.createElement('li');
-        liItem.classList.add('post');
-        const postTitle = document.createElement('h2');
-        postTitle.classList.add('post-title');
+        const liItem = document.createElement("li");
+        liItem.classList.add("post");
+        const postTitle = document.createElement("h2");
+        postTitle.classList.add("post-title");
         postTitle.textContent = post.title;
-        const pItem = document.createElement('p');
-        pItem.classList.add('post-body');
+        const pItem = document.createElement("p");
+        pItem.classList.add("post-body");
         pItem.textContent = post.body;
 
         liItem.appendChild(postTitle);
         liItem.appendChild(pItem);
-        document.getElementById('posts-container').appendChild(liItem);
+        document.getElementById("posts-container").appendChild(liItem);
 
-        userId.value = '';
-        title.value = '';
-        body.value = '';
+        userId.value = "";
+        title.value = "";
+        body.value = "";
       });
 
     console.log(`Update Post ID: ${postId}`);
   });
 
-
 // When a user submits the form, validate the form data
 // If form data is not valid, show error messages
 // If form data is valid, make an API request to update the post (PUT request)
 // Shouw a success message (do NOT use alert!) on the screen after successful response is recieved in the API request
-
