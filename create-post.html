@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,30 +8,27 @@
   </head>
   <body>
     <div class="container">
-      <a href="./index.html" class="button button--success">Turn Back</a>
-      <ul id="create-post-container">
-        <li>
-          <h3>ID:</h3>
-          <input type="number" id="userId" placeholder="ID" required />
-        </li>
-
-        <li>
+      <form id="create-post-container">
+        <div>
           <h3>Title:</h3>
           <input type="text" id="title" placeholder="Title" required />
-        </li>
+        </div>
 
-        <li>
+        <div>
           <h3>Body:</h3>
           <input type="text" id="body" placeholder="Body" required />
-        </li>
-        <li>
+        </div>
+        <div>
           <button id="create-post-btn" class="button button--success">
             Create New Post
           </button>
-        </li>
-      </ul>
+          <a href="./index.html" class="button button--success">Turn Back</a>
+        </div>
+      </form>
     </div>
-    <ul id="posts-container"></ul>
+    <ul id="posts-container">
+      <p id="error-message" class="error-message"></p>
+    </ul>
 
     <script src="./create-post.js"></script>
   </body>

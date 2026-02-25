@@ -1,17 +1,18 @@
 document
   .getElementById("create-post-btn")
   .addEventListener("click", function createPost() {
-    const userId = document.getElementById("userId");
+    const userId = Math.floor(Math.random() * 110000);
     const title = document.getElementById("title");
     const body = document.getElementById("body");
 
-    if (userId.value === "" || title.value === "" || body.value === "") {
-      const errorMessage = document.createElement("p");
-      errorMessage.classList.add("error-message");
+    if (title.value === "" || body.value === "") {
+      const errorMessage = document.getElementById("error-message");
       errorMessage.textContent = "Please fill in all fields.";
+      errorMessage.style.display = "block";
       document.getElementById("posts-container").appendChild(errorMessage);
       setTimeout(() => {
-        errorMessage.remove();
+        errorMessage.textContent = "";
+        errorMessage.style.display = "none";
       }, 3000);
       return;
     }
@@ -29,6 +30,7 @@ document
     })
       .then((response) => {
         if (!response.ok) {
+          throw new Error("Something went wrong");
         }
         return response.json();
       })

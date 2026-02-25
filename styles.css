@@ -97,6 +97,7 @@ input {
   color: white;
   padding: 12px;
   border-radius: 5px;
+  display: none;
 }
 
 .success-message {
