@@ -7,31 +7,30 @@
     <title>Update post</title>
   </head>
   <body>
+    <div class="container"></div>
     <div class="container">
-      <a class="button button--success" href="./index.html">Turn Back</a>
-    </div>
-    <div class="container">
-      <ul id="update-post-container">
-        <li>
+      <form id="update-post-container">
+        <div>
           <h3>ID:</h3>
           <input type="number" id="userId" required />
-        </li>
+        </div>
 
-        <li>
+        <div>
           <h3>Title:</h3>
           <input type="text" id="title" required />
-        </li>
+        </div>
 
-        <li>
+        <div>
           <h3>Body:</h3>
           <input type="text" id="body" required />
-        </li>
-        <li>
+        </div>
+        <div>
           <button id="update-post-btn" class="button button--success">
             Update Post
           </button>
-        </li>
-      </ul>
+          <a class="button button--success" href="./index.html">Turn Back</a>
+        </div>
+      </form>
       <ul id="posts-container"></ul>
     </div>
     <script src="./update-post.js"></script>
