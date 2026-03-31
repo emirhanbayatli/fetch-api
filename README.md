@@ -26,7 +26,7 @@ This project demonstrates how to interact with an API using JavaScript's Fetch A
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/fetch-api.git
+   git clone https://github.com/emirhanbayatli/fetch-api.git
    ```
 
 2. Open the `index.html` file in your browser to view the demo.
